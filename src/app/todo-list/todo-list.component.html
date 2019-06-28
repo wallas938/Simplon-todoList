@@ -8,7 +8,12 @@
   <div class="list-of-todo">
     <ul>
       <li *ngFor="let user of userTodos">
-        <p class="todo">
+        <p class="todo" *ngIf="user.isDone">
+            <del>
+                {{ user.todo }}
+            </del>
+        </p>
+        <p class="todo" *ngIf="!user.isDone">
             {{ user.todo }}
         </p>
         <div class="custom-control custom-checkbox">
@@ -18,10 +23,10 @@
       </li>
     </ul>
     <div class="btn-block">
-      <button class="btn btn-primary" (click)="checkerTodoHandler()">
+      <button class="btn btn-primary" (click)="checkingTodoHandler()">
         Cocher les todos
       </button>
-      <button class="btn btn-secondary" (click)="unCheckTodoHandler()">
+      <button class="btn btn-secondary" (click)="unCheckingTodoHandler()">
         Décocher les todos
       </button>
       <button class="btn btn-danger" (click)="deleteTodoHandler()">

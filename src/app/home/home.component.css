@@ -1,13 +1,13 @@
 main {
   border: 3px solid white;
   border-radius: 8px;
-  height: 100%;
+  min-height: 80%;
   width: 100%;
-  background-color: #fff;
+  background-color: beige;
   font-family: 'Mali', cursive;
   font-weight: 900;
   word-break: keep-all;
-  padding: 0 12px;
+  padding: 0 30px 12px;
 }
 
 .date-block {
@@ -22,21 +22,56 @@ main {
   width: 20%;
   display: flex;
   border-radius: 5px;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.digitDay, .capitalDay {
+  color: gray;
 }
 
 .digitDay {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
+  padding-bottom: 16px;
+  margin-right: 5px;
+}
+
+.capitalDay {
+  font-size: 2.0rem;
 }
 
 .month-year {
-  height: inherit;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0;
+  color: brown;
 }
 
 p.month, p.year {
   margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+@media screen and (min-width: 800px) {
+  .month-year {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    color: brown;
+    width: 100px;
+  }
+  .digitDay {
+    font-size: 3.0rem;
+    padding-bottom: 10px;
+  }
+
+  p.month, p.year {
+    padding-top: 7px;
+    font-size: 2.5rem;
+  }
+
+  p.month {
+    margin-right: 10px;
+  }
 }

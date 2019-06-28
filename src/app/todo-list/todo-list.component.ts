@@ -20,16 +20,16 @@ export class TodoListComponent implements OnInit {
   ngOnInit() {
   }
 
-  getCheckedTodo(todoId) {
-    console.log()
+  getCheckedTodo(todoId: String) {
+    
   }
 
-  checkerTodoHandler() {
+  checkingTodoHandler() {
     this.todoService.checkAllTodo()
     this.updateTodos()
   }
 
-  unCheckTodoHandler() {
+  unCheckingTodoHandler() {
     this.todoService.unCheckAllTodo()
     this.updateTodos()
   }

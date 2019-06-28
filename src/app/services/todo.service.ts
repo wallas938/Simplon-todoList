@@ -39,10 +39,8 @@ export class TodoService {
 
   deleteTodo() {
     const newTodoList = this.allTodos.filter(e => {
-      console.log(e.id)
       return e.isDone === false
     })
     this.allTodos = newTodoList
-    console.log(this.allTodos)
   }
 }

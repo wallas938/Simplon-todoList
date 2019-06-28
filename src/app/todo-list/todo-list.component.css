@@ -3,11 +3,20 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  border: 3px solid green;
+}
+
+.new-todo-field {
+  display: flex;
+  justify-content: center;
 }
 
 #newTodo {
-  border-radius: 5px;
+  border-radius: 3px;
+  width: 340px;
+}
+
+#btn-add-todo {
+  margin-left: 12px;
 }
 
 .list-of-todo {
@@ -17,6 +26,15 @@
 li {
   display: flex;
   list-style: none;
-  justify-content: space-between;
-  border: 3px solid maroon;
+  justify-content: space-around;
+}
+
+.btn-block {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button.btn {
+  width: 100px;
+  height: 80px;
 }

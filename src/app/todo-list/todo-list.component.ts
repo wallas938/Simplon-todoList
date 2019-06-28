@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../services/todo.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-todo-list',
@@ -7,9 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+  userTodos: any[]
+
+  todoForm = new FormControl('')
+  
+  constructor(private todoService: TodoService) { 
+    this.userTodos = this.todoService.getAllTodo()
+  }
 
   ngOnInit() {
   }
 
+  getCheckedTodo(todoId) {
+    console.log()
+  }
+
+  checkerTodoHandler() {
+    this.todoService.checkAllTodo()
+    this.updateTodos()
+  }
+
+  unCheckTodoHandler() {
+    this.todoService.unCheckAllTodo()
+    this.updateTodos()
+  }
+
+  deleteTodoHandler() {
+    this.todoService.deleteTodo()
+    this.updateTodos()
+  }
+
+  newTodoHandler(newTodo: String) {
+    this.todoService.addNewTodo(newTodo)
+    this.updateTodos()
+    this.todoForm.setValue('')
+  }
+
+  updateTodos() {
+    this.userTodos = this.todoService.getAllTodo()
+  }
 }

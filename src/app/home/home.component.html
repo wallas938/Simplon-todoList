@@ -3,16 +3,16 @@
         <div class="date-block">
           <div class="header-left-block">
               <p class="digitDay">
-                  12
+                  {{ currentDate | date: 'dd'}}
               </p>
           <div class="month-year">
-              <P class="month">JAN</P>
-              <P class="year">2016</P>
+              <P class="month">{{ currentDate | date: 'MMM'}}</P>
+              <P class="year">{{ currentDate | date: 'y'}}</P>
           </div>
           </div>
           <div class="header-right-block">
             <p class="capitalDay">
-              TUESDAY
+              {{ currentDate | date: 'EEEE' | uppercase}}
             </p>
           </div>
         </div>

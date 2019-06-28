@@ -1,17 +1,17 @@
 main {
   border: 3px solid white;
   border-radius: 8px;
-  height: 80%;
+  height: 100%;
   width: 100%;
   background-color: #fff;
   font-family: 'Mali', cursive;
   font-weight: 900;
   word-break: keep-all;
+  padding: 0 12px;
 }
 
 .date-block {
   display: flex;
-  border: 3px solid blue;
   justify-content: space-between;
   align-items: center;
   border-radius: 5px;
@@ -21,7 +21,6 @@ main {
 .header-left-block {
   width: 20%;
   display: flex;
-  border: 3px solid violet;
   border-radius: 5px;
   justify-content: space-between;
 }
@@ -35,7 +34,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 3px solid red;
   padding: 0;
 }
 

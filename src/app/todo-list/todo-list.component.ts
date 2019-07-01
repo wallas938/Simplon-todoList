@@ -24,24 +24,22 @@ export class TodoListComponent implements OnInit {
     
   }
 
-  allowDrop(e: any) {
-    e.preventDefault();
+  allowDrop(event: any) {
+    event.preventDefault();
   }
 
-  todoDraggedHandler(e: any) {
-    console.log(e)
-    e.dataTransfer.setData("text", e.target.id);
+  todoDraggedHandler(event: any) {
+    event.dataTransfer.setData("text", event.target.id);
   }
 
-  todoDroppedHandler(e: any) {
-    e.preventDefault()
-    let data = e.dataTransfer.getData("text")
-    e.target.appendChild(document.getElementById(data));
-    console.log(data)
+  todoDroppedHandler(event: any) {
+    event.preventDefault()
+    let data = event.dataTransfer.getData("text")
+    this.todoService.deleteTrashedTodo(data)
+    this.updateTodos()
   }
 
-  checkingTodoHandler(e: any) {
-    console.log(e)
+  checkingTodoHandler(event: any) {
     this.todoService.checkAllTodo()
     this.updateTodos()
   }

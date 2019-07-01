@@ -6,12 +6,12 @@
     </button>
   </div>
   <div class="block-trash_todos">
-    <div class="todo-trash" (ondrop)="todoDroppedHandler(e)" (ondragover)="allowDrop(e)">
+    <div class="todo-trash" (drop)="todoDroppedHandler($event)" (dragover)="allowDrop($event)">
       <i class="fas fa-trash"></i>
     </div>
     <div class="list-of-todo">
       <ul>
-        <li *ngFor="let user of userTodos" draggable="true" id={{user.id}} (ondragstart)="todoDraggedHandler(e)">
+        <li *ngFor="let user of userTodos" draggable="true" id={{user.listId}} (dragstart)="todoDraggedHandler($event)">
           <p class="todo" *ngIf="user.isDone">
               <del>
                   {{ user.todo }}

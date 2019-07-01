@@ -5,33 +5,39 @@
       Ajouter todo
     </button>
   </div>
-  <div class="list-of-todo">
-    <ul>
-      <li *ngFor="let user of userTodos">
-        <p class="todo" *ngIf="user.isDone">
-            <del>
-                {{ user.todo }}
-            </del>
-        </p>
-        <p class="todo" *ngIf="!user.isDone">
-            {{ user.todo }}
-        </p>
-        <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="getCheckedTodo(todoForm.value)" [(ngModel)]="user.isDone">
-          <label class="custom-control-label" for={{user.id}}>Done</label>
-        </div>
-      </li>
-    </ul>
-    <div class="btn-block">
-      <button class="btn btn-primary" (click)="checkingTodoHandler()">
-        Cocher les todos
-      </button>
-      <button class="btn btn-secondary" (click)="unCheckingTodoHandler()">
-        Décocher les todos
-      </button>
-      <button class="btn btn-danger" (click)="deleteTodoHandler()">
-        Supprimer les todos terminées
-      </button>
+  <div class="block-trash_todos">
+    <div class="todo-trash" (ondrop)="todoDroppedHandler(e)" (ondragover)="allowDrop(e)">
+      <i class="fas fa-trash"></i>
+    </div>
+    <div class="list-of-todo">
+      <ul>
+        <li *ngFor="let user of userTodos" draggable="true" id={{user.id}} (ondragstart)="todoDraggedHandler(e)">
+          <p class="todo" *ngIf="user.isDone">
+              <del>
+                  {{ user.todo }}
+              </del>
+          </p>
+          <p class="todo" *ngIf="!user.isDone">
+              {{ user.todo }}
+          </p>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="getCheckedTodo(todoForm.value)" [(ngModel)]="user.isDone">
+            <label class="custom-control-label" for={{user.id}}>Done</label>
+          </div>
+        </li>
+      </ul>
+      <div class="btn-block">
+        <button class="btn btn-primary" (click)="checkingTodoHandler(e)">
+          Cocher les todos
+        </button>
+        <button class="btn btn-secondary" (click)="unCheckingTodoHandler()">
+          Décocher les todos
+        </button>
+        <button class="btn btn-danger" (click)="deleteCheckedTodoHandler()">
+          Supprimer les todos terminées
+        </button>
+      </div>
     </div>
   </div>
+  
 </div>

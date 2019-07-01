@@ -37,7 +37,7 @@ export class TodoService {
     this.allTodos = [...this.allTodos, { id: todoId, todo: newTodo, isDone: false }]
   }
 
-  deleteTodo() {
+  deleteCheckedTodos() {
     const newTodoList = this.allTodos.filter(e => {
       return e.isDone === false
     })

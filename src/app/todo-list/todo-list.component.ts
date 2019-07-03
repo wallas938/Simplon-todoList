@@ -9,19 +9,27 @@ import { FormControl } from '@angular/forms';
 })
 export class TodoListComponent implements OnInit {
 
-  userTodos: any[]
+  userTodos: any
 
   todoForm = new FormControl('')
   
-  constructor(private todoService: TodoService) { 
+  constructor(private todoService: TodoService) {
+
     this.userTodos = this.todoService.getAllTodo()
   }
 
   ngOnInit() {
+    this.todoService.todosInit()
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
   }
 
   getCheckedTodo(todoId: String) {
-    
+    this.todoService.checkThisTodo(todoId)
+    this.updateTodos()
   }
 
   allowDrop(event: any) {
@@ -58,6 +66,8 @@ export class TodoListComponent implements OnInit {
     this.todoService.addNewTodo(newTodo)
     this.updateTodos()
     this.todoForm.setValue('')
+    console.log(this.userTodos)
+    
   }
 
   updateTodos() {

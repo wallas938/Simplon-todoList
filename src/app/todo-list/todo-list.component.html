@@ -11,6 +11,7 @@
     </div>
     <div class="list-of-todo">
       <ul>
+        <p></p>
         <li *ngFor="let user of userTodos" draggable="true" id={{user.listId}} (dragstart)="todoDraggedHandler($event)">
           <p class="todo" *ngIf="user.isDone">
               <del>
@@ -21,7 +22,7 @@
               {{ user.todo }}
           </p>
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="getCheckedTodo(todoForm.value)" [(ngModel)]="user.isDone">
+            <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="getCheckedTodo(todoForm.value)" [(ngModel)]="user['isDone']">
             <label class="custom-control-label" for={{user.id}}>Done</label>
           </div>
         </li>

@@ -8,7 +8,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { DateService } from './services/date.service';
 import { Logger } from './services/logger.service';
 import { TodoService } from './services/todo.service';
-import {  } from 'ngx-cookie-service';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [

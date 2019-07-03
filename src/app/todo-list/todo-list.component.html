@@ -22,7 +22,7 @@
               {{ user.todo }}
           </p>
           <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="getCheckedTodo(todoForm.value)" [(ngModel)]="user['isDone']">
+            <input type="checkbox" class="custom-control-input" id={{user.id}} (change)="oneTodoCheckingHandler($event)" [(ngModel)]="user.isDone">
             <label class="custom-control-label" for={{user.id}}>Done</label>
           </div>
         </li>

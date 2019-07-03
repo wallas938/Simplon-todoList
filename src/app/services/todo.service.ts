@@ -28,8 +28,13 @@ export class TodoService {
     return JSON.parse(window.sessionStorage.getItem('userTodos'))
   } 
 
-  checkThisTodo(todoId) {
-    console.log(console.log(todoId)) // TU ES ICI
+  isChecked(todoId:String, statusTodo: Boolean) {
+    this.allTodos.forEach((e, i) => {
+      if(e.id === todoId) {
+        e.isDone === true ? e.isDone = false : e.isDone = true
+      }
+    })
+    this.stringiFyerTodo()
   }
   
   checkAllTodo() {

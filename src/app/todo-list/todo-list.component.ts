@@ -27,9 +27,11 @@ export class TodoListComponent implements OnInit {
     //Add 'implements OnDestroy' to the class.
   }
 
-  getCheckedTodo(todoId: String) {
-    this.todoService.checkThisTodo(todoId)
-    this.updateTodos()
+  oneTodoCheckingHandler(event: any) {
+    let currentTodoId = event.target.id
+    let statusTodo = event.target.checked
+    this.todoService.isChecked(currentTodoId, statusTodo)
+    this.updateTodos() 
   }
 
   allowDrop(event: any) {

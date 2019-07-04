@@ -64,6 +64,14 @@ button.btn {
   font-size: 0.7rem;
 }
 
+#edit-btn {
+  width: 65px;
+  height: 20px;
+  font-size: 0.8rem;
+  line-height: 0px;
+  margin-right: 10px;
+}
+
 @media screen and (min-width: 800px){
   button.btn {
     width: 100px;

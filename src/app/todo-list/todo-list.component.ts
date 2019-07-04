@@ -13,24 +13,23 @@ export class TodoListComponent implements OnInit {
 
   todoForm = new FormControl('')
   
+  /** A l'initialisation, on recupère un object contenant toutes les todos
+   *  si il y en a
+   */
   constructor(private todoService: TodoService) {
 
     this.userTodos = this.todoService.getAllTodo()
   }
 
+  /** Si la page est recharger il recupere les données sauvegardées dans le localStorage */
   ngOnInit() {
     this.todoService.todosInit()
   }
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-  }
-
+  /** Identifie la todo checker */
   oneTodoCheckingHandler(event: any) {
     let currentTodoId = event.target.id
-    let statusTodo = event.target.checked
-    this.todoService.isChecked(currentTodoId, statusTodo)
+    this.todoService.isChecked(currentTodoId)
     this.updateTodos() 
   }
 
@@ -68,8 +67,6 @@ export class TodoListComponent implements OnInit {
     this.todoService.addNewTodo(newTodo)
     this.updateTodos()
     this.todoForm.setValue('')
-    console.log(this.userTodos)
-    
   }
 
   updateTodos() {

@@ -12,7 +12,11 @@
     <div class="list-of-todo">
       <ul>
         <p></p>
-        <li *ngFor="let user of userTodos" draggable="true" id={{user.listId}} (dragstart)="todoDraggedHandler($event)">
+        <li *ngFor="let user of userTodos" draggable="true" id="user.listId" (dragstart)="todoDraggedHandler($event)">
+          <button id="edit-btn" class="btn btn-success" data-toggle="modal" [attr.data-target]="'#'+ user.modalId">
+            Editer
+          </button>
+          <app-edit-modal modalId={{user.modalId}} todoId={{user.id}} userTodo={{user.todo}}></app-edit-modal>
           <p class="todo" *ngIf="user.isDone">
               <del>
                   {{ user.todo }}

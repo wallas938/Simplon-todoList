@@ -24,7 +24,7 @@ todoForm = new FormGroup({
   }
 
   todoEditHandler(todoId: String) {
-    this.todoService.editTodo(todoId, this.todoForm.get(newTodo)) /** ICI !!! */
+     /** ICI !!! */
     console.log(todoId)
   }
 

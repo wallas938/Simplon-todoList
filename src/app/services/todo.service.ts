@@ -80,7 +80,6 @@ export class TodoService {
         e.todo = newTodo
         e.isDone = false
       }
-      console.log(e)
       return e
     })
     this.stringiFyerTodo()

@@ -74,10 +74,14 @@ export class TodoService {
   /** Modifie la todo choisie */
 
   editTodo(todoId: String, newTodo: String) {
-    this.allTodos.forEach((e, i) => {
+    this.allTodos = this.allTodos.map(e => {
       if(e.id === todoId) {
-        e.todo === true ? e.isDone = false : e.isDone = true
+        
+        e.todo = newTodo
+        e.isDone = false
       }
+      console.log(e)
+      return e
     })
     this.stringiFyerTodo()
   }

@@ -5,7 +5,7 @@
       Ajouter todo
     </button>
   </div>
-  <div class="block-trash_todos">
+  <div class="block-trash_todos" (alertEditing)="updateTodos()">
     <div class="todo-trash" (drop)="todoDroppedHandler($event)" (dragover)="allowDrop($event)">
       <i class="fas fa-trash"></i>
     </div>

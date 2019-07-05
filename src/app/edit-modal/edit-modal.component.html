@@ -9,13 +9,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
-          <input type="text" placeholder={{userTodo}} formControleName="newTodo">
-        </form>
+          <input type="text" placeholder={{userTodo}} [formControl]="newTodo">
+        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
-        <button type="button" class="btn btn-primary" (submit)="todoEditHandler(todoId)">Sauvegarder</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="todoEditHandler(todoId)">Sauvegarder</button>
       </div>
     </div>
   </div>

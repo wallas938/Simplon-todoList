@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { TodoService } from '../services/todo.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EventEmitter } from 'protractor';
 @Component({
   selector: 'app-edit-modal',
   templateUrl: './edit-modal.component.html',
@@ -11,10 +13,9 @@ export class EditModalComponent implements OnInit {
 @Input() todoId: String
 @Input() userTodo: String
 @Input() modalId: String
+//@Output() alertEditing = new EventEmitter<>()
 
-todoForm = new FormGroup({
-  newTodo: new FormControl(''),
-});
+newTodo = new FormControl('');
 
   constructor(private todoService: TodoService) { 
     
@@ -24,8 +25,8 @@ todoForm = new FormGroup({
   }
 
   todoEditHandler(todoId: String) {
-     /** ICI !!! */
-    console.log(todoId)
+     this.todoService.editTodo(todoId, this.newTodo.value)
+     ///this.alertEditing.emit();
   }
 
 }

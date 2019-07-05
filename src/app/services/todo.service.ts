@@ -56,9 +56,9 @@ export class TodoService {
 
   /** Ajoute une todo a la liste  */
   addNewTodo(newTodo: String) {
-    let todoId = `userTodoId${this.allTodos.length + 1}`
-    let listId = `listId1${this.allTodos.length + 1}`
-    let modalId = `${todoId}Modal`
+    let todoId = 'id_' + Math.random().toString(36).substr(2)
+    let listId = 'listId_' + Math.random().toString(36).substr(2)
+    let modalId = 'ModalId_' + todoId
     
     this.allTodos = [...this.allTodos, { 
       id: todoId, 
